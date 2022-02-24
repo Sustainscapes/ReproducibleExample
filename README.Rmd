@@ -4,27 +4,34 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE)
+library(tidyverse)
 ```
 
-## GitHub Documents
+## Summary
 
-This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
+In this repo we will examine the ForRichness dataset and the Richness dataset
 
-## Including Code
+```{r}
+Richness <- read_csv("Richness.csv")
 
-You can include R code in the document as follows:
+ForRichness <- read_csv("ForRichness.csv")
 
-```{r cars}
-summary(cars)
+FinalDataset <- full_join(Richness, ForRichness)
 ```
 
-## Including Plots
+## Just an example of inlinde code
 
-You can also embed plots, for example:
+In our dataset, the median richness for all of our sites is `r median(FinalDataset$Richness)` species of plants, from the year `r min(FinalDataset$year)` to the year `r max(FinalDataset$year)` for `r prettyNum(length(unique(FinalDataset$ID)), big.mark = ".", decimal.mark = ",")` sites
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+
+## Example of one table
+
+```{r}
+Summary <- FinalDataset %>% 
+  dplyr::filter(!is.na(MajorHab)) %>% 
+  group_by(MajorHab) %>% 
+  summarise(MedianRichness = mean(Richness), MaxRichness = max(Richness), MinRichness = min(Richness))
+knitr::kable(Summary, digits = 2, caption = "Summary of number of species according to major habitats")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

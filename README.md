@@ -1,33 +1,30 @@
 Reproducible example
 ================
 
-## GitHub Documents
+## Summary
 
-This is an R Markdown format used for publishing markdown documents to
-GitHub. When you click the **Knit** button all R code chunks are run and
-a markdown file (.md) suitable for publishing to GitHub is generated.
+In this repo we will examine the ForRichness dataset and the Richness
+dataset
 
-## Including Code
+## Just an example of inlinde code
 
-You can include R code in the document as follows:
+In our dataset, the median richness for all of our sites is 7 species of
+plants, from the year 2003 to the year 2015 for 50.295 sites
 
-``` r
-summary(cars)
-```
+## Example of one table
 
-    ##      speed           dist       
-    ##  Min.   : 4.0   Min.   :  2.00  
-    ##  1st Qu.:12.0   1st Qu.: 26.00  
-    ##  Median :15.0   Median : 36.00  
-    ##  Mean   :15.4   Mean   : 42.98  
-    ##  3rd Qu.:19.0   3rd Qu.: 56.00  
-    ##  Max.   :25.0   Max.   :120.00
+| MajorHab | MedianRichness | MaxRichness | MinRichness |
+|---------:|---------------:|------------:|------------:|
+|       13 |           1.00 |           2 |           0 |
+|       21 |          12.40 |          21 |           3 |
+|       22 |          18.50 |          42 |           9 |
+|       40 |           9.53 |          32 |           2 |
+|       51 |          10.25 |          18 |           3 |
+|       62 |          13.94 |          33 |           0 |
+|       64 |          10.03 |          33 |           1 |
+|       71 |           7.87 |          22 |           1 |
+|       72 |           9.40 |          42 |           1 |
+|       91 |           1.50 |           2 |           1 |
+|       99 |           9.00 |          18 |           4 |
 
-## Including Plots
-
-You can also embed plots, for example:
-
-![](README_files/figure-gfm/pressure-1.png)<!-- -->
-
-Note that the `echo = FALSE` parameter was added to the code chunk to
-prevent printing of the R code that generated the plot.
+Summary of number of species according to major habitats
